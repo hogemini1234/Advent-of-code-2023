@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-
-# By Jakob Ruhe 2023-12-02
-
 import os
 import math
 import unittest
