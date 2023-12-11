@@ -14,6 +14,16 @@ def is_possible(cube_counts, game):
 def possible_games(cube_counts, games):
     possible_ids = []
 
+    # Function Definitions
+    for game in games:
+        game_id, *revealed_sets = game.split(': ')[1].split('; ')
+        game_id = int(game_id)
+        
+        if is_possible(cube_counts, revealed_sets):
+            possible_ids.append(game_id)
+    
+    return possible_ids
+
 # Given cube counts
 cube_counts = {'red': 12, 'green': 13, 'blue': 14}
 
@@ -25,3 +35,11 @@ games = [
     "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red",
     "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
 ]
+
+# Find possible games
+possible_ids = possible_games(cube_counts, games)
+
+# Calculate the sum of possible game IDs
+result = sum(possible_ids)
+
+print(result)
